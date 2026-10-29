@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raio-X da Juventude</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #203047;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #163b68;
+      color: white;
+      padding: 48px 20px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 2.3rem; margin-bottom: 8px; }
+    header p { max-width: 700px; margin: auto; }
+
+    nav {
+      background: #102c4d;
+      padding: 14px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    main { max-width: 1050px; margin: auto; padding: 24px; }
+    section { margin: 32px 0; }
+
+    .aviso {
+      background: #fff4d6;
+      border-left: 5px solid #d69e20;
+      padding: 14px;
+      border-radius: 5px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 3px 12px #18334b12;
+    }
+
+    .numero { font-size: 2rem; font-weight: bold; color: #2463a6; }
+    .grafico { background: white; border-radius: 12px; margin: 18px 0; padding: 10px; }
+    h2 { color: #163b68; }
+
+    footer {
+      text-align: center;
+      background: #163b68;
+      color: white;
+      padding: 24px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      nav a { display: inline-block; margin: 5px; }
+      main { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Raio-X da Juventude</h1>
+  <p>Uma análise das condições de vida, educação e oportunidades
+  para os jovens.</p>
+</header>
+
+<nav>
+  <a href="#projeto">Projeto</a>
+  <a href="#indicadores">Indicadores</a>
+  <a href="#graficos">Gráficos</a>
+  <a href="#solucoes">Soluções</a>
+</nav>
+
+<main>
+  <div class="aviso">
+    <strong>Atenção:</strong> esta é uma demonstração com dados
+    fictícios de 15 registros. Os resultados não representam
+    a população jovem. Os gráficos deverão ser atualizados
+    quando forem utilizados dados reais.
+  </div>
+
+  <section id="projeto">
+    <h2>Sobre o projeto</h2>
+    <p>
+      O Raio-X da Juventude busca compreender desafios
+      socioeconômicos e educacionais enfrentados pelos jovens.
+      Utilizamos Python para organizar dados, calcular indicadores
+      e produzir visualizações que apoiem propostas de melhoria.
+    </p>
+    <p>
+      <strong>Metodologia:</strong> análise exploratória de dados,
+      com uso de pandas, NumPy, Matplotlib e Seaborn.
+      A demonstração inicial utiliza dados simulados.
+    </p>
+  </section>
+
+  <section id="indicadores">
+    <h2>Indicadores da demonstração</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="numero">15</div>
+        <div>Registros fictícios analisados</div>
+      </div>
+      <div class="card">
+        <div class="numero">66,7%</div>
+        <div>Com acesso à internet</div>
+      </div>
+      <div class="card">
+        <div class="numero">33,3%</div>
+        <div>Sem acesso à internet</div>
+      </div>
+      <div class="card">
+        <div class="numero">2,5 h</div>
+        <div>Média diária de estudo</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="graficos">
+    <h2>Visualização dos dados</h2>
+    <div class="grafico" id="graficoInternet"></div>
+    <div class="grafico" id="graficoEscola"></div>
+  </section>
+
+  <section id="solucoes">
+    <h2>Propostas de intervenção</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Inclusão digital</h3>
+        <p>Ampliar o acesso a computadores, internet e espaços
+        gratuitos de estudo.</p>
+      </div>
+      <div class="card">
+        <h3>Mentoria escolar</h3>
+        <p>Fortalecer o acompanhamento pedagógico e o apoio
+        socioemocional dos estudantes.</p>
+      </div>
+      <div class="card">
+        <h3>Preparação para o futuro</h3>
+        <p>Oferecer oficinas de tecnologia, orientação profissional
+        e capacitação para o mercado de trabalho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Conclusão preliminar</h2>
+    <p>
+      A demonstração mostra como dados podem ser organizados
+      e apresentados para apoiar decisões. Conclusões sobre a
+      realidade dos jovens dependerão da coleta e validação de
+      dados reais, com metodologia e limitações documentadas.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>Projeto Raio-X da Juventude | Análise de dados e impacto social</p>
+</footer>
+
+<script>
+  const layout = {
+    autosize: true,
+    margin: { t: 50, r: 20, b: 60, l: 50 },
+    paper_bgcolor: "white",
+    plot_bgcolor: "white"
+  };
+
+  Plotly.newPlot("graficoInternet", [{
+    x: ["Com internet", "Sem internet"],
+    y: [10, 5],
+    type: "bar",
+    marker: { color: ["#2878B5", "#E6A23C"] },
+    text: ["10 (66,7%)", "5 (33,3%)"],
+    textposition: "auto"
+  }], {
+    ...layout,
+    title: "Acesso à internet (dados fictícios)",
+    yaxis: { title: "Número de jovens", rangemode: "tozero" }
+  }, { responsive: true });
+
+  Plotly.newPlot("graficoEscola", [{
+    x: ["Frequenta", "Não frequenta"],
+    y: [12, 3],
+    type: "bar",
+    marker: { color: ["#31866A", "#D96C6C"] },
+    text: ["12 (80%)", "3 (20%)"],
+    textposition: "auto"
+  }], {
+    ...layout,
+    title: "Frequência escolar (dados fictícios)",
+    yaxis: { title: "Número de jovens", rangemode: "tozero" }
+  }, { responsive: true });
+</script>
+
+</body>
+</html>
